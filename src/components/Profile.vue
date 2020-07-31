@@ -1,14 +1,13 @@
 <template>
-  <div>
+  <div class="profile">
     <h1>Hi! Welcome to my page.</h1>
     <p>I'm Jensen, a full stack developer based in the UK. I mainly specialize in backend development with the NodeJS platform.</p>
     <p>Want to see more?<br /> Here are my links:</p>
     <Link v-for="link in links" :links="link" :key="link.name" />
     <p>And here are some projects:</p>
-    <div style="height: 15em;">
+    <div class="projects">
       <Project v-for="project in projects" :project="project" :key="project.name" />
     </div>
-    <p class="bottom">Built with <a href="https://vuejs.org/" target="_blank">VueJS</a></p>
   </div>
 </template>
 
@@ -36,21 +35,20 @@ export default {
   text-align: center;
   font-family: Arial;
 }
-h1 {
-  margin: 5em 0 0;
-}
+/* h1 {
+  padding: 2em 0 0;
+} */
 p {
   font-size: 1.5em;
 }
 
-.bottom {
-  font-size: 0.8em;
-  position: absolute;
-	bottom: 0;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
+.projects {
+  height: 15em;
+}
+
+.profile {
+  padding: 2em 0 0;
+  height: 100%;
 }
 
 /* unvisited link */

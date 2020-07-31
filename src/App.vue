@@ -38,6 +38,12 @@ export default {
       ],
       projects: [
         {
+          name: 'Larkin.Space',
+          link: 'https://github.com/j3ns3n/larkin.space',
+          desc: 'A copy of this website, built using VueJS and made to be modular and easily editable with new links and projects when needed.',
+          tags: ['Javascript', 'VueJS', 'Website', 'Responsive']
+        },
+        {
           name: 'Mercy-Selfbot',
           link: 'https://github.com/j3ns3n/mercy-selfbot',
           desc: 'An old project using message events within Discord to add extra functionality to chat messages. Archived due to the use of selfbots no longer being allowed by Discord.',
@@ -54,3 +60,10 @@ export default {
   }
 };
 </script>
+
+<style>
+
+#app {
+  height: 100%;
+}
+</style>

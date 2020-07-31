@@ -1,4 +1,5 @@
 # larkin.space
+Basic messing around with the VueJS framework to create a minimalist and mobile-friendly personal webpage.
 
 ## Project setup
 ```

@@ -22,7 +22,7 @@ export default {
   border-radius: 60px;
   box-shadow: 0px 0px 2px #888;
   padding: 0.5em 0.6em;
-  size: 100em;
+  /* size: 100em; */
   margin: 0.5em;
 }
 
