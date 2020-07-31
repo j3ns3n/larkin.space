@@ -19,19 +19,37 @@ export default {
       links: [
         {
           name: 'GitHub',
-          icon: 'github',
+          icon: {
+            type: 'fab',
+            name: 'github'
+          },
           link: 'https://github.com/J3ns3n',
           colour: '#24292e'
         },
         {
           name: 'Twitter',
-          icon: 'twitter',
+          icon: {
+            type: 'fab',
+            name: 'twitter'
+          },
           link: 'https://twitter.com/jensenlarkin',
           colour: '#1DA1F2'
         },
         {
+          name: 'Email',
+          icon: {
+            type: 'far',
+            name: 'envelope'
+          },
+          link: 'mailto:jensen@larkin.space',
+          colour: '#d35400'
+        },
+        {
           name: 'Discord',
-          icon: 'discord',
+          icon: {
+            type: 'fab',
+            name: 'discord'
+          },
           link: 'https://discord.gg/FPDwypZ',
           colour: '#7289DA'
         }

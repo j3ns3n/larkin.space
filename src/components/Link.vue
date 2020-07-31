@@ -1,7 +1,7 @@
 <template>
   <a :href="links.link" :alt="links.name" class="circle" :style="{ 'background-color': links.colour }" target="_blank">
     <div class="overlay">
-      <font-awesome-icon :icon="['fab', links.icon]" size="2x"></font-awesome-icon>
+      <font-awesome-icon :icon="[links.icon.type, links.icon.name]" size="2x"></font-awesome-icon>
     </div>
   </a>
 </template>
