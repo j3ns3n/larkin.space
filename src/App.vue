@@ -24,7 +24,7 @@ export default {
             name: 'github'
           },
           link: 'https://github.com/J3ns3n',
-          colour: '#24292e'
+          colour: '#24292E'
         },
         {
           name: 'Twitter',
@@ -42,7 +42,16 @@ export default {
             name: 'envelope'
           },
           link: 'mailto:jensen@larkin.space',
-          colour: '#d35400'
+          colour: '#D35400'
+        },
+        {
+          name: 'Spotify',
+          icon: {
+            type: 'fab',
+            name: 'spotify'
+          },
+          link: 'https://open.spotify.com/user/jensenlarkin?si=OqFZoVBnRLe78zjFe398eA',
+          colour: '#1DB954'
         },
         {
           name: 'Discord',
