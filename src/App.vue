@@ -71,6 +71,12 @@ export default {
           tags: ['Javascript', 'VueJS', 'Website', 'Responsive']
         },
         {
+          name: 'VueJS Todo List',
+          link: 'https://github.com/j3ns3n/vuejs-todo-list',
+          desc: 'A simple back/frontend for a todo list website made with VueJS and Express.',
+          tags: ['Javascript', 'VueJS', 'Website', 'Express']
+        },
+        {
           name: 'Mercy-Selfbot',
           link: 'https://github.com/j3ns3n/mercy-selfbot',
           desc: 'An old project using message events within Discord to add extra functionality to chat messages. Archived due to the use of selfbots no longer being allowed by Discord.',
