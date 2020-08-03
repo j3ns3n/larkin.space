@@ -42,10 +42,6 @@ p {
   font-size: 1.5em;
 }
 
-.projects {
-  height: 15em;
-}
-
 .profile {
   padding: 2em 0 0;
   height: 100%;

@@ -95,6 +95,11 @@ export default {
 </script>
 
 <style>
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: visible;
+}
 
 #app {
   height: 100%;

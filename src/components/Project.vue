@@ -1,8 +1,10 @@
 <template>
   <div>
-    <a :href="project.link" target="_blank">
-      <h3>{{ project.name }}</h3>
-    </a>
+    <h3>
+      <a :href="project.link" target="_blank">
+        {{ project.name }}
+      </a>
+    </h3>
     <p class="desc">{{ project.desc }}</p>
     <p class="small">{{ project.tags.join(', ') }}</p>
   </div>
@@ -24,7 +26,7 @@ div {
   border: 0.1em solid grey;
   padding: 0.3em;
   margin: 2em;
-  height: 100%;
+  height: 15em;
   vertical-align: top;
   position: relative;
 }
