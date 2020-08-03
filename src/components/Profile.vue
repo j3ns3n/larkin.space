@@ -44,7 +44,6 @@ p {
 
 .profile {
   padding: 2em 0 0;
-  height: 100%;
 }
 
 /* unvisited link */
