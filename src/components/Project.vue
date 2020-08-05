@@ -22,7 +22,7 @@ export default {
 <style scoped>
 div {
   display: inline-block;
-  width: 20em;
+  width: 18em;
   border: 0.1em solid grey;
   padding: 0.3em;
   margin: 2em;

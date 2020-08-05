@@ -71,6 +71,12 @@ export default {
           tags: ['Javascript', 'VueJS', 'Website', 'Responsive']
         },
         {
+          name: 'Get Me Home Safe',
+          link: 'https://github.com/j3ns3n/Get-Me-Home-Safe',
+          desc: 'A basic Android app that pulls data about individual crimes within the local area and displays them on a map, made as an A-Level Computer Science project.',
+          tags: ['Java', 'Google Maps', 'API', 'Android']
+        },
+        {
           name: 'VueJS Todo List',
           link: 'https://github.com/j3ns3n/vuejs-todo-list',
           desc: 'A simple back/frontend for a todo list website made with VueJS and Express.',
