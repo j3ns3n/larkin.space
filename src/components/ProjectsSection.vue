@@ -1,6 +1,6 @@
 <template>
   <section class="section fade-section" ref="el">
-    <div class="section-title text-center">Projects</div>
+    <div class="section-title text-center">My Projects</div>
     <div class="grid">
       <a
         v-for="project in projects"
@@ -13,18 +13,19 @@
         <div class="card-top">
           <q-icon name="fab fa-github" size="20px" class="text-grey-6" />
           <div class="card-top-right">
-            <q-badge
-              v-if="project.archived"
-              color="grey-9"
-              text-color="grey-5"
-              label="Archived"
-              class="archived"
-            />
             <q-icon name="open_in_new" size="16px" class="text-grey-7 ext-icon" />
           </div>
         </div>
-
+        <span class="row">
         <h3 class="card-title">{{ project.name }}</h3>
+        <q-badge
+              v-if="project.archived"
+              color="yellow-9"
+              label="Archived"
+              class="archived q-mt-md q-ml-sm"
+              outline
+            />
+</span>
         <p class="card-desc">{{ project.description }}</p>
 
         <div class="tags">
@@ -86,7 +87,8 @@ const projects = computed(() => projectStore['getProjects'])
   font-size: 0.65rem;
   letter-spacing: 0.04em;
   padding: 2px 8px;
-  border-radius: 4px;
+  border-radius: 8px;
+  max-height: 16.4px;
 }
 
 .ext-icon {

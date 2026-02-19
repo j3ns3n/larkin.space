@@ -1,9 +1,9 @@
 <template>
   <section class="hero bg-gradient-animated">
     <div class="hero-content">
-      <q-avatar size="120px" class="avatar q-mb-lg">
+      <!-- <q-avatar size="120px" class="avatar q-mb-lg">
         <img src="~assets/avatar-placeholder.png" alt="Jensen Larkin" />
-      </q-avatar>
+      </q-avatar> -->
       <div class="greeting text-grey-6">Hello, I'm</div>
       <h1 class="name glow-text">Jensen Larkin</h1>
       <p class="tagline">Software Engineer &middot; United Kingdom</p>

@@ -1,9 +1,10 @@
 <template>
   <q-page class="index-page">
     <HeroSection @scroll-down="scrollToAbout" />
-    <AboutSection ref="aboutRef" />
-    <LinksSection />
-    <ProjectsSection />
+    <div style="min-height: 100vh;">
+      <AboutSection ref="aboutRef" />
+      <ProjectsSection />
+    </div>
     <FooterSection />
   </q-page>
 </template>
@@ -12,7 +13,6 @@
 import { ref } from 'vue'
 import HeroSection from 'components/HeroSection.vue'
 import AboutSection from 'components/AboutSection.vue'
-import LinksSection from 'components/LinksSection.vue'
 import ProjectsSection from 'components/ProjectsSection.vue'
 import FooterSection from 'components/FooterSection.vue'
 
