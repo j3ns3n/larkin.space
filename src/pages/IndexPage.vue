@@ -1,7 +1,7 @@
 <template>
   <q-page class="index-page">
     <HeroSection @scroll-down="scrollToAbout" />
-    <div style="min-height: 100vh;">
+    <div style="min-height: 100vh">
       <AboutSection ref="aboutRef" />
       <ProjectsSection />
     </div>

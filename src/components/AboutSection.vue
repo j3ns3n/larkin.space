@@ -7,20 +7,19 @@
         enjoy building clean, scalable systems and exploring new technologies along the way.
       </p>
       <div class="section-subtitle q-mt-lg">Find me on</div>
-        <div class="links">
-
-          <a
-            v-for="link in links"
-            :key="link.name"
-            :href="link.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="link-btn glass-card"
-            :style="{ '--accent': link.color }"
-          >
-            <q-icon :name="link.icon" size="24px" />
-            <q-tooltip>{{ link.name }}</q-tooltip>
-          </a>
+      <div class="links">
+        <a
+          v-for="link in links"
+          :key="link.name"
+          :href="link.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-btn glass-card"
+          :style="{ '--accent': link.color }"
+        >
+          <q-icon :name="link.icon" size="24px" />
+          <q-tooltip>{{ link.name }}</q-tooltip>
+        </a>
       </div>
     </div>
   </section>
@@ -31,7 +30,6 @@ import { computed } from 'vue'
 import { useSocialsStore } from 'src/stores/socialsStore'
 import { useReveal } from 'src/composables/useReveal'
 const el = useReveal()
-
 
 const socialsStore = useSocialsStore()
 const links = computed(() => socialsStore.getSocials)

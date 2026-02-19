@@ -17,15 +17,15 @@
           </div>
         </div>
         <span class="row">
-        <h3 class="card-title">{{ project.name }}</h3>
-        <q-badge
-              v-if="project.archived"
-              color="yellow-9"
-              label="Archived"
-              class="archived q-mt-md q-ml-sm"
-              outline
-            />
-</span>
+          <h3 class="card-title">{{ project.name }}</h3>
+          <q-badge
+            v-if="project.archived"
+            color="yellow-9"
+            label="Archived"
+            class="archived q-mt-md q-ml-sm"
+            outline
+          />
+        </span>
         <p class="card-desc">{{ project.description }}</p>
 
         <div class="tags">
