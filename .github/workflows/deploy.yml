@@ -34,4 +34,4 @@ jobs:
           rsync -avz --delete \
             -e "ssh -i ~/.ssh/deploy_key" \
             dist/ssg/ \
-            deploy@${{ secrets.VPS_HOST }}:/var/www/html/larkin.space/
+            deploy@${{ secrets.VPS_HOST }}:/
