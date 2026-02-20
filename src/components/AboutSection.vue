@@ -1,6 +1,6 @@
 <template>
   <section class="section fade-section" ref="el">
-    <div class="section-title">About Me</div>
+    <h2 class="section-title">About Me</h2>
     <div class="glass-card q-pa-lg">
       <p class="bio">
         I'm a software engineer with a focus on backend engineering using the Laravel ecosystem. I
@@ -16,6 +16,7 @@
           rel="noopener noreferrer"
           class="link-btn glass-card"
           :style="{ '--accent': link.color }"
+          :aria-label="link.name"
         >
           <q-icon :name="link.icon" size="24px" />
           <q-tooltip>{{ link.name }}</q-tooltip>

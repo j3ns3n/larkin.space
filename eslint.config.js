@@ -1,23 +1,18 @@
 import js from '@eslint/js'
 import globals from 'globals'
 import pluginVue from 'eslint-plugin-vue'
-import pluginQuasar from '@quasar/app-vite/eslint'
 import prettierSkipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 
 export default [
   {
-    /**
-     * Ignore the following files.
-     * Please note that pluginQuasar.configs.recommended() already ignores
-     * the "node_modules" folder for you (and all other Quasar project
-     * relevant folders and files).
-     *
-     * ESLint requires "ignores" key to be the only one in this object
-     */
-    // ignores: []
+    ignores: [
+      'node_modules/**',
+      'dist/**',
+      '.quasar/**',
+      'quasar.config.*.temporary.compiled*',
+    ],
   },
 
-  ...pluginQuasar.configs.recommended(),
   js.configs.recommended,
 
   /**

@@ -1,6 +1,6 @@
 <template>
   <section class="section fade-section" ref="el">
-    <div class="section-title text-center">My Projects</div>
+    <h2 class="section-title text-center">My Projects</h2>
     <div class="grid">
       <a
         v-for="project in projects"

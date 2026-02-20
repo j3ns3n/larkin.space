@@ -1,9 +1,9 @@
 // Configuration for your app
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file
 
-import { defineConfig } from '#q-app/wrappers'
+const { configure } = require('quasar/wrappers')
 
-export default defineConfig((/* ctx */) => {
+module.exports = configure((/* ctx */) => {
   return {
     // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature
     // preFetch: true,
@@ -72,7 +72,7 @@ export default defineConfig((/* ctx */) => {
       },
 
       // iconSet: 'material-icons', // Quasar icon set
-      // lang: 'en-US', // Quasar language pack
+      lang: 'en-GB', // Quasar language pack
 
       // For special cases outside of where the auto-import strategy can have an impact
       // (like functional components as one of the examples),
@@ -100,6 +100,13 @@ export default defineConfig((/* ctx */) => {
     //   electronPreload: 'src-electron/electron-preload'
     //   bexManifestFile: 'src-bex/manifest.json
     // },
+
+    // https://github.com/nicolo-ribaudo/quasar-app-extension-ssg
+    ssg: {
+      concurrency: 10,
+      crawler: true,
+      inlineCriticalCss: true,
+    },
 
     // https://v2.quasar.dev/quasar-cli-vite/developing-ssr/configuring-ssr
     ssr: {

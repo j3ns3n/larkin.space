@@ -1,12 +1,14 @@
 <template>
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <q-separator color="grey-9" class="q-mb-lg" />
-    <p>
-      Built with
-      <a href="https://quasar.dev" target="_blank" rel="noopener noreferrer">Quasar</a>
-      &middot;
-      <a href="mailto:jensen@larkin.space">jensen@larkin.space</a>
-    </p>
+    <nav aria-label="Footer links">
+      <p>
+        Built with
+        <a href="https://quasar.dev" target="_blank" rel="noopener noreferrer">Quasar</a>
+        &middot;
+        <a href="mailto:jensen@larkin.space">jensen@larkin.space</a>
+      </p>
+    </nav>
   </footer>
 </template>
 
