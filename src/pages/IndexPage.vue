@@ -3,6 +3,7 @@
     <HeroSection @scroll-down="scrollToAbout" />
     <div style="min-height: 100vh">
       <AboutSection ref="aboutRef" />
+      <ExperienceSection />
       <ProjectsSection />
     </div>
     <FooterSection />
@@ -13,6 +14,7 @@
 import { ref } from 'vue'
 import HeroSection from 'components/HeroSection.vue'
 import AboutSection from 'components/AboutSection.vue'
+import ExperienceSection from 'components/ExperienceSection.vue'
 import ProjectsSection from 'components/ProjectsSection.vue'
 import FooterSection from 'components/FooterSection.vue'
 
