@@ -9,8 +9,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { useMeta } from 'quasar'
+import { computed, onMounted } from 'vue'
 
 const messages = [
   "Looks like this route wasn't in the requirements.",
@@ -31,11 +30,18 @@ const messages = [
 
 const message = computed(() => messages[Math.floor(Math.random() * messages.length)])
 
-useMeta({
-  title: 'Page Not Found - Jensen Larkin',
-  meta: {
-    robots: { name: 'robots', content: 'noindex, nofollow' },
-  },
+onMounted(() => {
+  document.title = 'Page Not Found - Jensen Larkin'
+
+  let robots = document.querySelector('meta[name="robots"]')
+  if (robots) {
+    robots.setAttribute('content', 'noindex, nofollow')
+  } else {
+    robots = document.createElement('meta')
+    robots.name = 'robots'
+    robots.content = 'noindex, nofollow'
+    document.head.appendChild(robots)
+  }
 })
 </script>
 
