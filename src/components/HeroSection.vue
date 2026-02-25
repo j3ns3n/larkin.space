@@ -39,6 +39,7 @@ defineEmits(['scroll-down'])
   text-align: center;
   z-index: 1;
   position: relative;
+  padding: 0 24px;
 }
 
 .avatar {

@@ -27,7 +27,10 @@ import FooterSection from 'components/FooterSection.vue'
 const aboutRef = ref(null)
 
 function scrollToAbout() {
-  aboutRef.value?.$el?.scrollIntoView({ behavior: 'smooth' })
+  const el = aboutRef.value?.$el
+  if (!el) return
+  const top = el.getBoundingClientRect().top + window.scrollY - 40
+  window.scrollTo({ top, behavior: 'smooth' })
 }
 </script>
 
