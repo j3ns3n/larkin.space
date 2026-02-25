@@ -7,9 +7,7 @@
       <div class="greeting text-grey-6">Hello, I'm</div>
       <h1 class="name glow-text">Jensen Larkin</h1>
       <p class="tagline">Software Engineer &middot; United Kingdom</p>
-      <p class="hero-sub">
-        5+ years building scalable backend systems with Laravel &amp; Vue.js
-      </p>
+      <p class="hero-sub">5+ years building scalable backend systems with Laravel &amp; Vue.js</p>
     </div>
 
     <div class="particles">

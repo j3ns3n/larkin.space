@@ -3,10 +3,10 @@
     <h2 class="section-title">About Me</h2>
     <div class="glass-card q-pa-lg">
       <p class="bio">
-        I'm a software engineer with a Cyber Security degree and 5+ years of professional
-        experience building production systems. My day-to-day revolves around the Laravel ecosystem
-        — designing APIs, writing tests, and scaling backend architecture. On the frontend, I work
-        with Vue.js to bring it all together.
+        I'm a software engineer with a Cyber Security degree and 5+ years of professional experience
+        building production systems. My day-to-day revolves around the Laravel ecosystem — designing
+        APIs, writing tests, and scaling backend architecture. On the frontend, I work with Vue.js
+        to bring it all together.
       </p>
       <p class="bio q-mt-md">
         I care about writing clean, well-tested code and building tools that make other developers'

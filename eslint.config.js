@@ -5,12 +5,7 @@ import prettierSkipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 
 export default [
   {
-    ignores: [
-      'node_modules/**',
-      'dist/**',
-      '.quasar/**',
-      'quasar.config.*.temporary.compiled*',
-    ],
+    ignores: ['node_modules/**', 'dist/**', '.quasar/**', 'quasar.config.*.temporary.compiled*'],
   },
 
   js.configs.recommended,

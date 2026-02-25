@@ -7,7 +7,7 @@ import 'quasar/dist/types/feature-flag';
 
 declare module 'quasar/dist/types/feature-flag' {
   interface QuasarFeatureFlags {
-    ssr: true;
-    ssg: true;
+    ssr: true
+    ssg: true
   }
 }
