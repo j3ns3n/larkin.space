@@ -23,19 +23,19 @@ export const useProjectStore = defineStore('projectStore', {
         tags: ['PHP', 'Laravel', 'API', 'Package'],
       },
       {
+        name: 'Larkin.Space',
+        github: 'https://github.com/j3ns3n/larkin.space',
+        description:
+          'This portfolio site, built with Quasar and Vue 3 with a focus on clean design and easy maintainability.',
+        tags: ['Javascript', 'VueJS', 'Quasar', 'Website'],
+      },
+      {
         name: 'Discord-Tickets',
         github: 'https://github.com/j3ns3n/discord-tickets',
         description:
           'A lightweight, open-source Discord bot that lets server admins create, manage, and log independent support ticket channels.',
         tags: ['Javascript', 'Discord', 'Chat-Bot'],
         archived: true,
-      },
-      {
-        name: 'Larkin.Space',
-        github: 'https://github.com/j3ns3n/larkin.space',
-        description:
-          'This portfolio site, rebuilt with Quasar and Vue 3 with a focus on clean design and easy maintainability.',
-        tags: ['Javascript', 'VueJS', 'Quasar', 'Website'],
       },
     ],
   }),

@@ -1,6 +1,6 @@
 <template>
-  <section class="section fade-section" ref="el">
-    <h2 class="section-title text-center">My Projects</h2>
+  <section id="projects" class="section fade-section" ref="el">
+    <h2 class="section-title text-center">Projects</h2>
     <div class="grid">
       <a
         v-for="project in projects"
@@ -9,6 +9,7 @@
         target="_blank"
         rel="noopener noreferrer"
         class="glass-card card q-pa-lg"
+        :aria-label="`${project.name} — view on GitHub`"
       >
         <div class="card-top">
           <q-icon name="fab fa-github" size="20px" class="text-grey-6" />
