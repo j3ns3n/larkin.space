@@ -21,7 +21,7 @@ export const useExperienceStore = defineStore('experience', {
         company: 'The Scouts',
         url: 'https://www.scouts.org.uk',
         logo: scoutsLogo,
-        color: '#7e5bef',
+        color: '#00d4ff',
         startDate: 'Nov 2019',
         endDate: null,
         description:
