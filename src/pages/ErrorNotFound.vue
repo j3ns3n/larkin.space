@@ -1,11 +1,11 @@
 <template>
-  <div class="error-page bg-gradient-animated">
+  <q-page class="error-page bg-gradient-animated">
     <div class="error-content">
       <h1 class="error-code glow-text">404</h1>
       <p class="error-message">{{ message }}</p>
       <a href="/" class="home-btn">Take Me Home</a>
     </div>
-  </div>
+  </q-page>
 </template>
 
 <script setup>
