@@ -41,12 +41,14 @@ useMeta({
 
 <style lang="scss" scoped>
 .error-page {
-  min-height: 100vh;
+  position: fixed;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 24px;
+  z-index: 9999;
 }
 
 .error-code {
