@@ -14,7 +14,7 @@ export const useExperienceStore = defineStore('experience', {
         startDate: 'Sep 2020',
         endDate: null,
         description:
-          'Working across the full stack with Laravel and Vue.js — designing APIs, building internal tooling, writing tests, and keeping systems running smoothly at scale.',
+          'Building and maintaining production Laravel applications serving real users at scale. Designing RESTful APIs, writing comprehensive test suites, developing internal tooling with Vue.js, and working with MySQL, Redis, and CI/CD pipelines to keep systems reliable and performant.',
       },
       {
         title: 'Scout Leader',
@@ -25,7 +25,7 @@ export const useExperienceStore = defineStore('experience', {
         startDate: 'Nov 2019',
         endDate: null,
         description:
-          'Volunteering as a Scout Leader, helping young people develop skills for life through outdoor activities, teamwork, and community projects.',
+          'Leading weekly sessions for young people, planning outdoor expeditions, and mentoring on teamwork and problem-solving — building leadership and communication skills beyond the codebase.',
       },
     ],
   }),

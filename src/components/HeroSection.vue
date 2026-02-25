@@ -7,15 +7,18 @@
       <div class="greeting text-grey-6">Hello, I'm</div>
       <h1 class="name glow-text">Jensen Larkin</h1>
       <p class="tagline">Software Engineer &middot; United Kingdom</p>
+      <p class="hero-sub">
+        5+ years building scalable backend systems with Laravel &amp; Vue.js
+      </p>
     </div>
 
     <div class="particles">
       <span v-for="n in 14" :key="n" class="dot" />
     </div>
 
-    <div class="scroll-hint" @click="$emit('scroll-down')">
+    <button class="scroll-hint" @click="$emit('scroll-down')" aria-label="Scroll to content">
       <q-icon name="keyboard_arrow_down" size="32px" color="grey-6" />
-    </div>
+    </button>
   </section>
 </template>
 
@@ -66,11 +69,22 @@ defineEmits(['scroll-down'])
   font-weight: 300;
 }
 
+.hero-sub {
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 12px;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
 .scroll-hint {
   position: absolute;
   bottom: 40px;
   cursor: pointer;
   animation: bounce 2s ease-in-out infinite;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 @keyframes bounce {

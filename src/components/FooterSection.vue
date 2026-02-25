@@ -1,14 +1,7 @@
 <template>
   <footer class="footer" role="contentinfo">
     <q-separator color="grey-9" class="q-mb-lg" />
-    <nav aria-label="Footer links">
-      <p>
-        Built with
-        <a href="https://quasar.dev" target="_blank" rel="noopener noreferrer">Quasar</a>
-        &middot;
-        <a href="mailto:jensen@larkin.space">jensen@larkin.space</a>
-      </p>
-    </nav>
+    <p>&copy; {{ new Date().getFullYear() }} Jensen Larkin</p>
   </footer>
 </template>
 

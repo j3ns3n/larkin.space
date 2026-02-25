@@ -1,10 +1,17 @@
 <template>
-  <section class="section fade-section" ref="el">
+  <section id="about" class="section fade-section" ref="el">
     <h2 class="section-title">About Me</h2>
     <div class="glass-card q-pa-lg">
       <p class="bio">
-        I'm a software engineer with a focus on backend engineering using the Laravel ecosystem. I
-        enjoy building clean, scalable systems and exploring new technologies along the way.
+        I'm a software engineer with a Cyber Security degree and 5+ years of professional
+        experience building production systems. My day-to-day revolves around the Laravel ecosystem
+        — designing APIs, writing tests, and scaling backend architecture. On the frontend, I work
+        with Vue.js to bring it all together.
+      </p>
+      <p class="bio q-mt-md">
+        I care about writing clean, well-tested code and building tools that make other developers'
+        lives easier. When I'm not coding, you'll find me outdoors — whether that's volunteering
+        with young people or exploring the countryside.
       </p>
       <div class="section-subtitle q-mt-lg">Find me on</div>
       <div class="links">

@@ -1,5 +1,5 @@
 <template>
-  <section class="section fade-section" ref="el">
+  <section id="experience" class="section fade-section" ref="el">
     <h2 class="section-title">Experience</h2>
     <div class="glass-card q-pa-lg">
       <div class="roles">
@@ -48,8 +48,6 @@ const experiences = computed(() => experienceStore.getExperiences)
   flex-direction: column;
   gap: 28px;
   text-align: left;
-  max-width: 580px;
-  margin: 0 auto;
 }
 
 .role {
