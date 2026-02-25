@@ -1,11 +1,11 @@
 <template>
-  <q-page class="error-page bg-gradient-animated">
+  <div class="error-page bg-gradient-animated">
     <div class="error-content">
       <h1 class="error-code glow-text">404</h1>
       <p class="error-message">{{ message }}</p>
       <a href="/" class="home-btn">Take Me Home</a>
     </div>
-  </q-page>
+  </div>
 </template>
 
 <script setup>
@@ -41,12 +41,14 @@ useMeta({
 
 <style lang="scss" scoped>
 .error-page {
-  min-height: 100vh;
+  position: fixed;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 24px;
+  z-index: 9999;
 }
 
 .error-code {
