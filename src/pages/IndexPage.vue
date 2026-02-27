@@ -7,6 +7,7 @@
         <SkillsSection />
         <ExperienceSection />
       </div>
+      <CertificationsSection />
       <ProjectsSection />
       <ContactSection />
     </main>
@@ -15,14 +16,83 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useMeta } from 'quasar'
 import HeroSection from 'components/HeroSection.vue'
 import AboutSection from 'components/AboutSection.vue'
 import SkillsSection from 'components/SkillsSection.vue'
 import ExperienceSection from 'components/ExperienceSection.vue'
+import CertificationsSection from 'components/CertificationsSection.vue'
 import ProjectsSection from 'components/ProjectsSection.vue'
 import ContactSection from 'components/ContactSection.vue'
 import FooterSection from 'components/FooterSection.vue'
+import { useSkillsStore } from 'src/stores/skillsStore'
+import { useExperienceStore } from 'src/stores/experienceStore'
+import { useSocialsStore } from 'src/stores/socialsStore'
+import { useCertificationsStore } from 'src/stores/certificationsStore'
+
+const skillsStore = useSkillsStore()
+const experienceStore = useExperienceStore()
+const socialsStore = useSocialsStore()
+const certificationsStore = useCertificationsStore()
+
+const personJsonLd = computed(() => {
+  const skills = skillsStore.getCategories.flatMap((c) => c.skills.map((s) => s.name))
+  const currentJob = experienceStore.getExperiences[0]
+  const sameAs = socialsStore.getSocials
+    .map((s) => s.url)
+    .filter((url) => !url.startsWith('mailto:'))
+  const credentials = certificationsStore.getCertifications.map((cert) => ({
+    '@type': 'EducationalOccupationalCredential',
+    name: cert.name,
+    credentialCategory: 'certificate',
+    recognizedBy: { '@type': 'Organization', name: cert.issuer },
+    url: cert.credentialUrl,
+  }))
+
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Jensen Larkin',
+    givenName: 'Jensen',
+    familyName: 'Larkin',
+    jobTitle: currentJob?.title ?? 'Software Engineer',
+    url: 'https://larkin.space',
+    email: 'jensen@larkin.space',
+    description:
+      'Software Engineer based in the UK, specialising in Laravel, Vue.js, and scalable backend systems.',
+    image: 'https://larkin.space/icons/favicon-96x96.png',
+    address: { '@type': 'PostalAddress', addressCountry: 'GB' },
+    worksFor: {
+      '@type': 'Organization',
+      name: currentJob?.company ?? 'axitech',
+      url: currentJob?.url ?? 'https://axitech.co',
+    },
+    knowsAbout: skills,
+    hasCredential: credentials,
+    knowsLanguage: 'en',
+    sameAs,
+  })
+})
+
+useMeta(() => ({
+  script: {
+    'json-ld-person': {
+      type: 'application/ld+json',
+      innerHTML: personJsonLd.value,
+    },
+    'json-ld-website': {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Jensen Larkin',
+        url: 'https://larkin.space',
+        description: 'Portfolio of Jensen Larkin, Software Engineer based in the UK.',
+      }),
+    },
+  },
+}))
 
 const aboutRef = ref(null)
 

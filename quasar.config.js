@@ -82,7 +82,7 @@ module.exports = configure((/* ctx */) => {
       // directives: [],
 
       // Quasar plugins
-      plugins: [],
+      plugins: ['Meta'],
     },
 
     // https://v2.quasar.dev/options/animations
