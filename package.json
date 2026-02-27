@@ -12,7 +12,7 @@
     "dev": "quasar dev",
     "build": "quasar build",
     "dev:ssg": "quasar ssg dev",
-    "build:ssg": "quasar ssg generate",
+    "build:ssg": "quasar ssg generate && node scripts/ssg-inject-jsonld.js",
     "postinstall": "quasar prepare"
   },
   "dependencies": {
