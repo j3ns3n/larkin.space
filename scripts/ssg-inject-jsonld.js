@@ -34,7 +34,9 @@ function extractInitialState(html) {
 }
 
 function buildJsonLd(state) {
-  const skills = (state.skillsStore?.categories || []).flatMap((c) => (c.skills || []).map((s) => s.name))
+  const skills = (state.skillsStore?.categories || []).flatMap((c) =>
+    (c.skills || []).map((s) => s.name),
+  )
   const currentJob = state.experience?.experiences?.[0]
   const sameAs = (state.socialsStore?.socials || [])
     .map((s) => s.url)
