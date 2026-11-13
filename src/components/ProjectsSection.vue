@@ -12,9 +12,13 @@
         :aria-label="`${project.name} — view on GitHub`"
       >
         <div class="card-top">
-          <q-icon name="fab fa-github" size="20px" class="text-grey-6" />
+          <q-icon :name="resolveIcon('fab fa-github')" size="20px" class="muted-icon" />
           <div class="card-top-right">
-            <q-icon name="open_in_new" size="16px" class="text-grey-7 ext-icon" />
+            <q-icon
+              :name="resolveIcon('fas fa-arrow-up-right-from-square')"
+              size="16px"
+              class="ext-icon"
+            />
           </div>
         </div>
         <span class="row">
@@ -36,7 +40,10 @@
             class="tag"
             :style="{ '--c': projectStore.getTagInfo(tag).color || '#00d4ff' }"
           >
-            <q-icon :name="projectStore.getTagInfo(tag).icon || 'fas fa-code'" size="12px" />
+            <q-icon
+              :name="resolveIcon(projectStore.getTagInfo(tag).icon || 'fas fa-code')"
+              size="12px"
+            />
             {{ tag }}
           </span>
         </div>
@@ -49,6 +56,7 @@
 import { computed } from 'vue'
 import { useReveal } from 'src/composables/useReveal'
 import { useProjectStore } from 'src/stores/projectStore'
+import { resolveIcon } from 'src/utils/icons'
 
 const el = useReveal(0.1)
 const projectStore = useProjectStore()
@@ -92,10 +100,22 @@ const projects = computed(() => projectStore['getProjects'])
   max-height: 16.4px;
 }
 
+.muted-icon,
+.ext-icon {
+  color: var(--text-muted);
+}
+
 .ext-icon {
   opacity: 0;
   transition: opacity 0.2s;
-  .card:hover & {
+
+  @media (hover: hover) {
+    .card:hover & {
+      opacity: 1;
+    }
+  }
+
+  .card:focus-visible & {
     opacity: 1;
   }
 }
@@ -110,7 +130,7 @@ const projects = computed(() => projectStore['getProjects'])
 .card-desc {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--text-muted);
   margin: 0;
   flex: 1;
 }

@@ -12,12 +12,12 @@
         :style="{ '--accent': cert.color }"
       >
         <div class="cert-icon-wrap">
-          <q-icon :name="cert.icon" size="28px" />
+          <q-icon :name="resolveIcon(cert.icon)" size="28px" />
         </div>
         <h3 class="cert-name">{{ cert.name }}</h3>
         <span class="cert-issuer">{{ cert.issuer }}</span>
         <span class="cert-verify">
-          <q-icon name="fas fa-arrow-up-right-from-square" size="10px" />
+          <q-icon :name="resolveIcon('fas fa-arrow-up-right-from-square')" size="10px" />
           Verify
         </span>
       </a>
@@ -29,6 +29,7 @@
 import { computed } from 'vue'
 import { useReveal } from 'src/composables/useReveal'
 import { useCertificationsStore } from 'src/stores/certificationsStore'
+import { resolveIcon } from 'src/utils/icons'
 
 const el = useReveal(0.1)
 const certificationsStore = useCertificationsStore()
@@ -57,7 +58,22 @@ const certifications = computed(() => certificationsStore.getCertifications)
   max-width: 360px;
   flex: 1;
 
-  &:hover {
+  @media (hover: hover) {
+    &:hover {
+      border-top-color: var(--accent);
+
+      .cert-icon-wrap {
+        background: color-mix(in srgb, var(--accent) 18%, transparent);
+        transform: scale(1.08);
+      }
+
+      .cert-verify {
+        color: var(--accent);
+      }
+    }
+  }
+
+  &:focus-visible {
     border-top-color: var(--accent);
 
     .cert-icon-wrap {
@@ -66,7 +82,6 @@ const certifications = computed(() => certificationsStore.getCertifications)
     }
 
     .cert-verify {
-      opacity: 1;
       color: var(--accent);
     }
   }
@@ -105,10 +120,11 @@ const certifications = computed(() => certificationsStore.getCertifications)
   gap: 5px;
   font-size: 0.72rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--text-muted);
   margin-top: 14px;
-  opacity: 0.6;
-  transition: all 0.3s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }

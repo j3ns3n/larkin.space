@@ -18,7 +18,12 @@
             >
               {{ exp.company }}
             </a>
-            <span class="role-date">{{ exp.startDate }} — {{ exp.endDate || 'Present' }}</span>
+            <span class="role-date">
+              <time :datetime="yearMonth(exp.startDate)">{{ exp.startDate }}</time>
+              —
+              <time v-if="exp.endDate" :datetime="yearMonth(exp.endDate)">{{ exp.endDate }}</time>
+              <span v-else>Present</span>
+            </span>
             <p class="role-desc">{{ exp.description }}</p>
           </div>
         </div>
@@ -36,6 +41,26 @@ const el = useReveal(0.1)
 const experienceStore = useExperienceStore()
 
 const experiences = computed(() => experienceStore.getExperiences)
+
+const months = {
+  Jan: '01',
+  Feb: '02',
+  Mar: '03',
+  Apr: '04',
+  May: '05',
+  Jun: '06',
+  Jul: '07',
+  Aug: '08',
+  Sep: '09',
+  Oct: '10',
+  Nov: '11',
+  Dec: '12',
+}
+
+function yearMonth(label) {
+  const [mon, year] = String(label).split(' ')
+  return `${year}-${months[mon]}`
+}
 </script>
 
 <style lang="scss" scoped>
@@ -78,7 +103,14 @@ const experiences = computed(() => experienceStore.getExperiences)
   opacity: 0.7;
   transition: all 0.3s ease;
 
-  .role:hover & {
+  @media (hover: hover) {
+    .role:hover & {
+      filter: none;
+      opacity: 1;
+    }
+  }
+
+  .role:focus-within & {
     filter: none;
     opacity: 1;
   }
@@ -105,14 +137,20 @@ const experiences = computed(() => experienceStore.getExperiences)
   transition: opacity 0.2s;
   width: fit-content;
 
-  &:hover {
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+
+  &:focus-visible {
     opacity: 0.75;
   }
 }
 
 .role-date {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--text-muted);
   margin-top: 4px;
 }
 

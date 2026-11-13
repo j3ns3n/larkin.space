@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const messages = [
   "Looks like this route wasn't in the requirements.",
@@ -28,9 +28,13 @@ const messages = [
   "It's not a bug, it's a feature.",
 ]
 
-const message = computed(() => messages[Math.floor(Math.random() * messages.length)])
+// Stable during SSG/hydration. A joke is chosen after mount so the
+// pre-rendered 404.html does not mismatch, and no-JS visitors still
+// see a real message.
+const message = ref('404: Page not found')
 
 onMounted(() => {
+  message.value = messages[Math.floor(Math.random() * messages.length)]
   document.title = 'Page Not Found - Jensen Larkin'
 
   let robots = document.querySelector('meta[name="robots"]')
@@ -42,6 +46,8 @@ onMounted(() => {
     robots.content = 'noindex, nofollow'
     document.head.appendChild(robots)
   }
+
+  document.querySelector('link[rel="canonical"]')?.remove()
 })
 </script>
 
@@ -67,7 +73,7 @@ onMounted(() => {
 
 .error-message {
   font-size: clamp(1rem, 2.5vw, 1.3rem);
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-muted);
   font-weight: 300;
   margin: 16px 0 40px;
 }
@@ -82,9 +88,20 @@ onMounted(() => {
   font-weight: 600;
   font-size: 0.95rem;
   letter-spacing: 0.04em;
-  transition: all 0.3s ease;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
 
-  &:hover {
+  @media (hover: hover) {
+    &:hover {
+      background: rgba(0, 212, 255, 0.12);
+      box-shadow: 0 0 24px rgba(0, 212, 255, 0.2);
+      transform: translateY(-2px);
+    }
+  }
+
+  &:focus-visible {
     background: rgba(0, 212, 255, 0.12);
     box-shadow: 0 0 24px rgba(0, 212, 255, 0.2);
     transform: translateY(-2px);

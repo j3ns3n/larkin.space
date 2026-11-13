@@ -1,54 +1,109 @@
-* {
-  font-family: 'Inter', 'Roboto', sans-serif;
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url('/fonts/inter-latin.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-body {
+:root {
+  // Secondary copy. 0.65 white clears WCAG AA on the darkest and lightest
+  // background stops used on the page. Body copy that was already stronger stays put.
+  --text-muted: rgba(255, 255, 255, 0.65);
+  --focus-ring: #00d4ff;
+}
+
+* {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+body,
+body.body--dark {
   background: $dark-page;
   overflow-x: hidden;
+  // Quasar's base stylesheet sets body to Roboto. This wins that rule
+  // so the self-hosted Inter face is the one that actually paints.
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
+// Compositor-only drift. The previous background-position animation
+// repainted the full viewport every frame.
 .bg-gradient-animated {
-  background: linear-gradient(
-    135deg,
-    #0a0f1e 0%,
-    #1a1040 25%,
-    #0f172a 50%,
-    #0a1628 75%,
-    #0a0f1e 100%
-  );
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: #0a0f1e;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: -40%;
+    background: linear-gradient(
+      135deg,
+      #0a0f1e 0%,
+      #1a1040 25%,
+      #0f172a 50%,
+      #0a1628 75%,
+      #0a0f1e 100%
+    );
+    transform: translate3d(0, 0, 0) scale(1.12);
+    animation: gradientDrift 32s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
 }
 
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
+@keyframes gradientDrift {
+  from {
+    transform: translate3d(-7%, -5%, 0) scale(1.12);
   }
-  50% {
-    background-position: 100% 50%;
+  to {
+    transform: translate3d(7%, 5%, 0) scale(1.12);
   }
-  100% {
-    background-position: 0% 50%;
-  }
+}
+
+@mixin glass-lift {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(0, 212, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
+  transform: translateY(-4px);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  transition: all 0.3s ease;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(0, 212, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
-    transform: translateY(-4px);
+  @media (hover: hover) {
+    &:hover {
+      @include glass-lift;
+    }
   }
+
+  &:focus-visible {
+    @include glass-lift;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
 }
 
 .glow-text {
@@ -86,15 +141,37 @@ h2.section-title,
   margin-bottom: 16px;
 }
 
-.fade-section {
+// Hidden until the reveal observer adds .visible, and only when JS ran.
+// Without the html.js class (no JS, or a CSP that blocks the inline script)
+// sections stay visible.
+html.js .fade-section {
   opacity: 0;
   transform: translateY(30px);
   transition:
     opacity 0.8s ease,
     transform 0.8s ease;
+
   &.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  html.js .fade-section {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 

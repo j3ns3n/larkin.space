@@ -7,7 +7,7 @@ export const useCertificationsStore = defineStore('certifications', {
         name: 'Foundations of Git',
         issuer: 'GitKraken',
         icon: 'fab fa-git-alt',
-        color: '#169287',
+        color: '#35a89c',
         credentialUrl: 'https://learn.gitkraken.com/certificates/gb0lvblzxp',
       },
       {

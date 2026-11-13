@@ -45,9 +45,20 @@ const el = useReveal(0.1)
   font-weight: 600;
   font-size: 0.95rem;
   letter-spacing: 0.04em;
-  transition: all 0.3s ease;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
 
-  &:hover {
+  @media (hover: hover) {
+    &:hover {
+      background: rgba(0, 212, 255, 0.12);
+      box-shadow: 0 0 24px rgba(0, 212, 255, 0.2);
+      transform: translateY(-2px);
+    }
+  }
+
+  &:focus-visible {
     background: rgba(0, 212, 255, 0.12);
     box-shadow: 0 0 24px rgba(0, 212, 255, 0.2);
     transform: translateY(-2px);

@@ -17,7 +17,7 @@
                 class="skill-icon-mask"
                 :style="{ maskImage: `url(${skill.img})`, webkitMaskImage: `url(${skill.img})` }"
               />
-              <q-icon v-else :name="skill.icon" size="14px" />
+              <q-icon v-else :name="resolveIcon(skill.icon)" size="14px" />
               {{ skill.name }}
             </span>
           </div>
@@ -31,6 +31,7 @@
 import { computed } from 'vue'
 import { useReveal } from 'src/composables/useReveal'
 import { useSkillsStore } from 'src/stores/skillsStore'
+import { resolveIcon } from 'src/utils/icons'
 
 const el = useReveal(0.1)
 const skillsStore = useSkillsStore()
@@ -54,7 +55,7 @@ const categories = computed(() => skillsStore.getCategories)
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-muted);
   margin: 0 0 12px;
 }
 
@@ -86,12 +87,17 @@ const categories = computed(() => skillsStore.getCategories)
   background: color-mix(in srgb, var(--c) 8%, transparent);
   color: var(--c);
   white-space: nowrap;
-  transition: all 0.3s ease;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
 
-  &:hover {
-    background: color-mix(in srgb, var(--c) 15%, transparent);
-    border-color: color-mix(in srgb, var(--c) 50%, transparent);
-    transform: translateY(-2px);
+  @media (hover: hover) {
+    &:hover {
+      background: color-mix(in srgb, var(--c) 15%, transparent);
+      border-color: color-mix(in srgb, var(--c) 50%, transparent);
+      transform: translateY(-2px);
+    }
   }
 }
 </style>

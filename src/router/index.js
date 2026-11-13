@@ -17,9 +17,18 @@ import routes from './routes'
  */
 
 export default route(function (/* { store, ssrContext } */) {
-  const createHistory = process.env.SERVER
+  // Native SSG/SSR sets import.meta.env.QUASAR_SERVER. The process.env
+  // fallbacks cover older Quasar CLI defines.
+  const isServer =
+    import.meta.env.QUASAR_SERVER === true ||
+    process.env.SERVER === true ||
+    process.env.SERVER === 'true'
+  const routerMode = import.meta.env.QUASAR_VUE_ROUTER_MODE || process.env.VUE_ROUTER_MODE
+  const routerBase = import.meta.env.QUASAR_VUE_ROUTER_BASE || process.env.VUE_ROUTER_BASE
+
+  const createHistory = isServer
     ? createMemoryHistory
-    : process.env.VUE_ROUTER_MODE === 'history'
+    : routerMode === 'history'
       ? createWebHistory
       : createWebHashHistory
 
@@ -30,7 +39,7 @@ export default route(function (/* { store, ssrContext } */) {
     // Leave this as is and make changes in quasar.conf.js instead!
     // quasar.conf.js -> build -> vueRouterMode
     // quasar.conf.js -> build -> publicPath
-    history: createHistory(process.env.VUE_ROUTER_BASE),
+    history: createHistory(routerBase),
   })
 
   return Router
