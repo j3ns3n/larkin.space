@@ -25,7 +25,7 @@
           :style="{ '--accent': link.color }"
           :aria-label="link.name"
         >
-          <q-icon :name="link.icon" size="24px" />
+          <q-icon :name="resolveIcon(link.icon)" size="24px" />
           <q-tooltip>{{ link.name }}</q-tooltip>
         </a>
       </div>
@@ -37,6 +37,7 @@
 import { computed } from 'vue'
 import { useSocialsStore } from 'src/stores/socialsStore'
 import { useReveal } from 'src/composables/useReveal'
+import { resolveIcon } from 'src/utils/icons'
 const el = useReveal()
 
 const socialsStore = useSocialsStore()
@@ -74,9 +75,24 @@ const links = computed(() => socialsStore.getSocials)
   border-radius: 50%;
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease;
 
-  &:hover {
+  @media (hover: hover) {
+    &:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 30%, transparent);
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  &:focus-visible {
     color: var(--accent);
     border-color: var(--accent);
     box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 30%, transparent);

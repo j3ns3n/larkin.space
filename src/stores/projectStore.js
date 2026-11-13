@@ -4,11 +4,11 @@ export const useProjectStore = defineStore('projectStore', {
   state: () => ({
     tagConversions: {
       Javascript: { icon: 'fab fa-js', color: '#f7df1e' },
-      PHP: { icon: 'fab fa-php', color: '#777bb4' },
-      Laravel: { icon: 'fab fa-laravel', color: '#ff2d20' },
+      PHP: { icon: 'fab fa-php', color: '#9498cc' },
+      Laravel: { icon: 'fab fa-laravel', color: '#ff564c' },
       VueJS: { icon: 'fab fa-vuejs', color: '#42b883' },
       Quasar: { icon: 'fas fa-atom', color: '#00b4ff' },
-      Discord: { icon: 'fab fa-discord', color: '#5865f2' },
+      Discord: { icon: 'fab fa-discord', color: '#868ef6' },
       API: { icon: 'fas fa-plug', color: '#38bdf8' },
       Website: { icon: 'fas fa-globe', color: '#a78bfa' },
       Package: { icon: 'fas fa-box-open', color: '#fb923c' },
@@ -41,7 +41,7 @@ export const useProjectStore = defineStore('projectStore', {
   }),
   getters: {
     getTagInfo: (state) => (tag) => {
-      return state.tagConversions[tag] || { icon: 'fas fa-tag', color: '#6b7280' }
+      return state.tagConversions[tag] || { icon: 'fas fa-tag', color: '#9499a3' }
     },
     getProjects: (state) => {
       return state.projects

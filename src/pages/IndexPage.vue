@@ -32,8 +32,9 @@ const aboutRef = ref(null)
 function scrollToAbout() {
   const el = aboutRef.value?.$el
   if (!el) return
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   const top = el.getBoundingClientRect().top + window.scrollY - 40
-  window.scrollTo({ top, behavior: 'smooth' })
+  window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' })
 }
 </script>
 

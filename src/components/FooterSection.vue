@@ -13,14 +13,19 @@
   text-align: center;
 
   p {
-    color: rgba(255, 255, 255, 0.3);
+    color: var(--text-muted);
     font-size: 0.85rem;
   }
 
   a {
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--text-muted);
     text-decoration: none;
-    &:hover {
+    @media (hover: hover) {
+      &:hover {
+        color: $primary;
+      }
+    }
+    &:focus-visible {
       color: $primary;
     }
   }

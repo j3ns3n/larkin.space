@@ -4,23 +4,25 @@
       <!-- <q-avatar size="120px" class="avatar q-mb-lg">
         <img src="~assets/avatar-placeholder.png" alt="Jensen Larkin" />
       </q-avatar> -->
-      <div class="greeting text-grey-6">Hello, I'm</div>
+      <div class="greeting">Hello, I'm</div>
       <h1 class="name glow-text">Jensen Larkin</h1>
       <p class="tagline">Software Engineer &middot; United Kingdom</p>
       <p class="hero-sub">5+ years building scalable backend systems with Laravel &amp; Vue.js</p>
     </div>
 
-    <div class="particles">
+    <div class="particles" aria-hidden="true">
       <span v-for="n in 14" :key="n" class="dot" />
     </div>
 
     <button class="scroll-hint" @click="$emit('scroll-down')" aria-label="Scroll to content">
-      <q-icon name="keyboard_arrow_down" size="32px" color="grey-6" />
+      <q-icon :name="resolveIcon('fas fa-chevron-down')" size="32px" />
     </button>
   </section>
 </template>
 
 <script setup>
+import { resolveIcon } from 'src/utils/icons'
+
 defineEmits(['scroll-down'])
 </script>
 
@@ -51,6 +53,7 @@ defineEmits(['scroll-down'])
   font-size: 1.1rem;
   margin-bottom: 16px;
   letter-spacing: 0.05em;
+  color: var(--text-muted);
 }
 
 .name {
@@ -63,14 +66,14 @@ defineEmits(['scroll-down'])
 
 .tagline {
   font-size: clamp(1rem, 2.5vw, 1.3rem);
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-muted);
   margin-top: 16px;
   font-weight: 300;
 }
 
 .hero-sub {
   font-size: clamp(0.85rem, 2vw, 1rem);
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--text-muted);
   margin-top: 12px;
   font-weight: 300;
   letter-spacing: 0.02em;
@@ -84,6 +87,7 @@ defineEmits(['scroll-down'])
   background: none;
   border: none;
   padding: 0;
+  color: var(--text-muted);
 }
 
 @keyframes bounce {
